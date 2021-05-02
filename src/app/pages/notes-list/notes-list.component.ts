@@ -84,7 +84,6 @@ export class NotesListComponent implements OnInit {
 
   @ViewChild('filterInput') filterInputElementRef: ElementRef<HTMLInputElement>; 
 
-
   constructor(private notesService: NotesService) { }
 
   ngOnInit(): void {
@@ -95,6 +94,7 @@ export class NotesListComponent implements OnInit {
   deleteNote(note: Note) {
     let id = this.notesService.getId(note);
     this.notesService.delete(id);
+    //to refresh the filter method so it can filter new values from service
     this.filter(this.filterInputElementRef.nativeElement.value)
   }
 
